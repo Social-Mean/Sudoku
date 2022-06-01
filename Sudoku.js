@@ -14,7 +14,19 @@ var inputs = new Array();
 var isStart = 0;
 var isOver = 0;
 var time = 0;
-document.body.onload = creatInitState();
+
+function sleep(delay) {
+  for (var t = Date.now(); Date.now() - t <= d; );
+}
+document.body.onload = function () {
+  creatInitState();
+  isReady = getAnswer().splice(0, 81);
+  // console.log(isReady);
+  if (isReady[0] != puzzle[0]) {
+    location.reload();
+  }
+};
+// sleep(3);
 // $(document).ready(function () {
 //   isReady = getAnswer().splice(0, 81);
 //   // console.log(isReady);
@@ -41,18 +53,18 @@ document.body.onload = creatInitState();
 //     setTimeout(reload(), 1000);
 //   }
 // }
-window.onload = function () {
-  // var url = document.location.href;
-  isReady = getAnswer().splice(0, 81);
-  // console.log(isReady);
-  if (isReady[0] != puzzle[0]) {
-    location.reload();
-  }
-  // if (url.indexOf("yes=") == -1) {
-  //   var t = new Date();
-  //   window.location.href = url + "?yes=" + t.getTime();
-  // }
-};
+// document.body.onload = function () {
+//   // var url = document.location.href;
+//   isReady = getAnswer().splice(0, 81);
+//   // console.log(isReady);
+//   if (isReady[0] != puzzle[0]) {
+//     location.reload();
+//   }
+//   // if (url.indexOf("yes=") == -1) {
+//   //   var t = new Date();
+//   //   window.location.href = url + "?yes=" + t.getTime();
+//   // }
+// };
 function creatInitState() {
   // 获取tbody
   var tbody = document.querySelector("tbody");

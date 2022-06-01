@@ -16,7 +16,7 @@ var isOver = 0;
 var time = 0;
 
 function sleep(delay) {
-  for (var t = Date.now(); Date.now() - t <= d; );
+  for (var t = Date.now(); Date.now() - t <= delay; );
 }
 document.body.onload = function () {
   creatInitState();

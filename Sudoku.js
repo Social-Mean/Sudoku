@@ -1,17 +1,9 @@
-// var puzzle = document.getElementById("test").value.split(",");
-// for (i = 0; i < 81; i++) {
-//   puzzle[i] = parseInt(puzzle[i]);
-//   console.log(puzzle[i]);
-// }
-// console.log(puzzle);
 puzzle = $.ajax({
   url: "questionBank.json", //json文件位置，文件名
   type: "GET", //请求方式为get
   dataType: "json", //返回数据格式为json
   async: false,
-  success: function () {
-    //请求成功完成后要执行的方法
-  },
+  // success: function () {},
 });
 puzzle = puzzle.responseJSON.puzzle_list[0].problem;
 console.log(puzzle);
@@ -23,57 +15,8 @@ var isStart = 0;
 var isOver = 0;
 var time = 0;
 
-function sleep(delay) {
-  for (var t = Date.now(); Date.now() - t <= delay; );
-}
-document.body.onload = function () {
-  creatInitState();
-  // sleep(3000);
-  // isReady = getAnswer().splice(0, 81);
-  // // console.log(isReady);
-  // if (isReady[0] != puzzle[0]) {
-  //   location.reload();
-  // }
-};
-// sleep(3);
-// $(document).ready(function () {
-//   isReady = getAnswer().splice(0, 81);
-//   // console.log(isReady);
-//   if (isReady[0] != puzzle[0]) {
-//     location.reload();
-//   }
-// });
-// reurl();
-// function reurl() {
-//   url = location.href; //把当前页面的地址赋给变量 url
-//   var times = url.split("?"); //分切变量 url 分隔符号为 "?"
-//   if (times[1] != 1) {
-//     //如果?后的值不等于1表示没有刷新
-//     url += "?1"; //把变量 url 的值加入 ?1
-//     self.location.replace(url); //刷新页面
-//   }
-// }
-// reload();
-// function reload() {
-//   isReady = getAnswer().splice(0, 81);
-//   // console.log(isReady);
-//   if (isReady[0] != puzzle[0]) {
-//     location.reload();
-//     setTimeout(reload(), 1000);
-//   }
-// }
-// document.body.onload = function () {
-//   // var url = document.location.href;
-//   isReady = getAnswer().splice(0, 81);
-//   // console.log(isReady);
-//   if (isReady[0] != puzzle[0]) {
-//     location.reload();
-//   }
-//   // if (url.indexOf("yes=") == -1) {
-//   //   var t = new Date();
-//   //   window.location.href = url + "?yes=" + t.getTime();
-//   // }
-// };
+document.body.onload = creatInitState();
+
 function creatInitState() {
   // 获取tbody
   var tbody = document.querySelector("tbody");
@@ -89,11 +32,9 @@ function creatInitState() {
       var input = document.createElement("input");
       // 如果是手机端打开, 则type="number", 这样手机上点击表单后, 会出现九宫格
       if (!isPC()) {
-        // if (1) {
         input.setAttribute("type", "number");
       }
       input.setAttribute("value", puzzle[xy2n(j, i)]);
-      // input.setAttribute("class", "eachAnswer");
       input.setAttribute("onchange", "ifChange()");
       input.setAttribute(
         "style",

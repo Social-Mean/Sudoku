@@ -1,12 +1,12 @@
 $.get("questionBank.json", function (result) {
   i = Math.floor(Math.random() * 100);
-  console.log(result.puzzle_list[i].problem);
   $("#test").val(result.puzzle_list[i].problem);
 });
 var puzzle = document.getElementById("test").value.split(",");
 for (i = 0; i < 81; i++) {
   puzzle[i] = parseInt(puzzle[i]);
 }
+console.log(puzzle);
 var n;
 var oldAnswer = puzzle;
 var nowAnswer = new Array();
@@ -54,7 +54,16 @@ function creatInitState() {
     }
   }
 }
+reload();
+function reload() {
+  inputs = document.getElementsByTagName("input");
+  isReload = getAnswer().splice(0, 81);
 
+  console.log(isReload);
+  if (isReload[0] != puzzle[0]) {
+    location.reload();
+  }
+}
 function n2xy(n) {
   x = n % 9;
   y = parseInt(n / 9);

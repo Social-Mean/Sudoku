@@ -46,16 +46,11 @@
 </html>
 <script type="text/javascript">
   getShop();
-  function getShop() {
-    console.log("gettingshop");
+    function getPuzzleBank() {
     $.get("questionBank.json", function (result) {
       console.log(result);
-      //var result = JSON.parse(result)
-      var data = result.data;
-      if (data != null && data.length > 0) {
-        rendListByTemplate($("#shopTpl"), $("#shop_select"), data);
-        selectCurrentShop();
-      }
+      var result = JSON.parse(result);
+      // var data = result.data;
     });
   }
 

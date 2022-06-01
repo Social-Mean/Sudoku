@@ -54,8 +54,7 @@ function creatInitState() {
     }
   }
 }
-reload();
-function reload() {
+$().ready(function () {
   inputs = document.getElementsByTagName("input");
   isReload = getAnswer().splice(0, 81);
 
@@ -63,7 +62,7 @@ function reload() {
   if (isReload[0] != puzzle[0]) {
     location.reload();
   }
-}
+});
 function n2xy(n) {
   x = n % 9;
   y = parseInt(n / 9);

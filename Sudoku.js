@@ -6,7 +6,7 @@ var puzzle = document.getElementById("test").value.split(",");
 for (i = 0; i < 81; i++) {
   puzzle[i] = parseInt(puzzle[i]);
 }
-console.log(puzzle);
+// console.log(puzzle);
 var n;
 var oldAnswer = puzzle;
 var nowAnswer = new Array();

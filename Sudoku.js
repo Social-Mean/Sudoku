@@ -6,7 +6,16 @@ puzzle = $.ajax({
 });
 i = Math.floor(Math.random() * 100);
 puzzle = puzzle.responseJSON.puzzle_list[i].problem;
-console.log(puzzle);
+// puzzle = [
+//   6, 1, 7, 9, 2, 4, 8, 3, 5, 9, 8, 2, 5, 6, 3, 4, 7, 1, 5, 3, 4, 7, 8, 1, 6, 9,
+//   2,
+
+//   1, 2, 5, 6, 7, 8, 3, 4, 9, 4, 9, 6, 1, 3, 2, 5, 8, 7, 8, 7, 3, 4, 5, 9, 1, 2,
+//   6,
+
+//   2, 4, 9, 3, 1, 5, 7, 6, 8, 7, 5, 8, 2, 4, 6, 9, 1, 3, 3, 6, 1, 8, 9, 7, 2, 0,
+//   0,
+// ];
 var n;
 var oldAnswer = puzzle;
 var nowAnswer = new Array();
@@ -34,6 +43,7 @@ function creatInitState() {
       if (!isPC()) {
         input.setAttribute("type", "number");
       }
+      input.setAttribute("class", "Sudoku");
       input.setAttribute("value", puzzle[xy2n(j, i)]);
       input.setAttribute("onchange", "ifChange()");
       input.setAttribute(
@@ -88,7 +98,7 @@ function groupColor(n) {
   }
 }
 function getAnswer() {
-  inputs = document.getElementsByTagName("input");
+  inputs = document.getElementsByClassName("Sudoku");
   answer = new Array();
   for (i = 0; i < inputs.length; i++) {
     answer[i] = parseInt(inputs[i].value);

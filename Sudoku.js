@@ -1,12 +1,20 @@
-$.get("questionBank.json", function (result) {
-  i = Math.floor(Math.random() * 100);
-  $("#test").val(result.puzzle_list[i].problem);
-});
-var puzzle = document.getElementById("test").value.split(",");
-for (i = 0; i < 81; i++) {
-  puzzle[i] = parseInt(puzzle[i]);
-}
+// var puzzle = document.getElementById("test").value.split(",");
+// for (i = 0; i < 81; i++) {
+//   puzzle[i] = parseInt(puzzle[i]);
+//   console.log(puzzle[i]);
+// }
 // console.log(puzzle);
+puzzle = $.ajax({
+  url: "questionBank.json", //json文件位置，文件名
+  type: "GET", //请求方式为get
+  dataType: "json", //返回数据格式为json
+  async: false,
+  success: function () {
+    //请求成功完成后要执行的方法
+  },
+});
+puzzle = puzzle.responseJSON.puzzle_list[0].problem;
+console.log(puzzle);
 var n;
 var oldAnswer = puzzle;
 var nowAnswer = new Array();
@@ -20,12 +28,12 @@ function sleep(delay) {
 }
 document.body.onload = function () {
   creatInitState();
-//   sleep(3000);
-//   isReady = getAnswer().splice(0, 81);
-//   // console.log(isReady);
-//   if (isReady[0] != puzzle[0]) {
-//     location.reload();
-//   }
+  // sleep(3000);
+  // isReady = getAnswer().splice(0, 81);
+  // // console.log(isReady);
+  // if (isReady[0] != puzzle[0]) {
+  //   location.reload();
+  // }
 };
 // sleep(3);
 // $(document).ready(function () {

@@ -48,8 +48,8 @@
   getShop();
     function getPuzzleBank() {
     $.get("questionBank.json", function (result) {
-      console.log(result);
       var result = JSON.parse(result);
+      console.log(result);
       // var data = result.data;
     });
   }

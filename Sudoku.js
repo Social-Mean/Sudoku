@@ -20,12 +20,12 @@ function sleep(delay) {
 }
 document.body.onload = function () {
   creatInitState();
-  sleep(3000);
-  isReady = getAnswer().splice(0, 81);
-  // console.log(isReady);
-  if (isReady[0] != puzzle[0]) {
-    location.reload();
-  }
+//   sleep(3000);
+//   isReady = getAnswer().splice(0, 81);
+//   // console.log(isReady);
+//   if (isReady[0] != puzzle[0]) {
+//     location.reload();
+//   }
 };
 // sleep(3);
 // $(document).ready(function () {

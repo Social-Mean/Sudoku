@@ -29,7 +29,7 @@ function creatInitState() {
       // 创建td
       var td = document.createElement("td");
       var input = document.createElement("input");
-      // TODO: 如果是手机端打开, 则type="number", 这样手机上点击表单后, 会出现九宫格
+      // 如果是手机端打开, 则type="number", 这样手机上点击表单后, 会出现九宫格
       if (!isPC()) {
         // if (1) {
         input.setAttribute("type", "number");

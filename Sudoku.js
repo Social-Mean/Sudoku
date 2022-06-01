@@ -5,7 +5,8 @@ puzzle = $.ajax({
   async: false,
   // success: function () {},
 });
-puzzle = puzzle.responseJSON.puzzle_list[0].problem;
+i = Math.floor(Math.random() * 100);
+puzzle = puzzle.responseJSON.puzzle_list[i].problem;
 console.log(puzzle);
 var n;
 var oldAnswer = puzzle;

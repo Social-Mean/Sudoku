@@ -32,15 +32,27 @@ document.body.onload = creatInitState();
 //     self.location.replace(url); //刷新页面
 //   }
 // }
-reload();
-function reload() {
+// reload();
+// function reload() {
+//   isReady = getAnswer().splice(0, 81);
+//   // console.log(isReady);
+//   if (isReady[0] != puzzle[0]) {
+//     location.reload();
+//     setTimeout(reload(), 1000);
+//   }
+// }
+window.onload = function () {
+  // var url = document.location.href;
   isReady = getAnswer().splice(0, 81);
   // console.log(isReady);
   if (isReady[0] != puzzle[0]) {
     location.reload();
-    setTimeout(reload(), 1000);
   }
-}
+  // if (url.indexOf("yes=") == -1) {
+  //   var t = new Date();
+  //   window.location.href = url + "?yes=" + t.getTime();
+  // }
+};
 function creatInitState() {
   // 获取tbody
   var tbody = document.querySelector("tbody");

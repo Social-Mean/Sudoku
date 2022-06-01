@@ -1,9 +1,8 @@
 puzzle = $.ajax({
-  url: "questionBank.json", //json文件位置，文件名
-  type: "GET", //请求方式为get
-  dataType: "json", //返回数据格式为json
+  url: "questionBank.json",
+  type: "GET",
+  dataType: "json",
   async: false,
-  // success: function () {},
 });
 i = Math.floor(Math.random() * 100);
 puzzle = puzzle.responseJSON.puzzle_list[i].problem;

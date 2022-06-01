@@ -15,6 +15,13 @@ var isStart = 0;
 var isOver = 0;
 var time = 0;
 document.body.onload = creatInitState();
+$(document).ready(function () {
+  isReady = getAnswer().splice(0, 81);
+  console.log(isReady);
+  if (isReady[0] != puzzle[0]) {
+    location.reload();
+  }
+});
 
 function creatInitState() {
   // 获取tbody
@@ -54,15 +61,7 @@ function creatInitState() {
     }
   }
 }
-$().ready(function () {
-  inputs = document.getElementsByTagName("input");
-  isReload = getAnswer().splice(0, 81);
 
-  console.log(isReload);
-  if (isReload[0] != puzzle[0]) {
-    location.reload();
-  }
-});
 function n2xy(n) {
   x = n % 9;
   y = parseInt(n / 9);

@@ -15,14 +15,32 @@ var isStart = 0;
 var isOver = 0;
 var time = 0;
 document.body.onload = creatInitState();
-$(document).ready(function () {
+// $(document).ready(function () {
+//   isReady = getAnswer().splice(0, 81);
+//   // console.log(isReady);
+//   if (isReady[0] != puzzle[0]) {
+//     location.reload();
+//   }
+// });
+// reurl();
+// function reurl() {
+//   url = location.href; //把当前页面的地址赋给变量 url
+//   var times = url.split("?"); //分切变量 url 分隔符号为 "?"
+//   if (times[1] != 1) {
+//     //如果?后的值不等于1表示没有刷新
+//     url += "?1"; //把变量 url 的值加入 ?1
+//     self.location.replace(url); //刷新页面
+//   }
+// }
+reload();
+function reload() {
   isReady = getAnswer().splice(0, 81);
-  console.log(isReady);
+  // console.log(isReady);
   if (isReady[0] != puzzle[0]) {
     location.reload();
+    setTimeout(reload(), 1000);
   }
-});
-
+}
 function creatInitState() {
   // 获取tbody
   var tbody = document.querySelector("tbody");

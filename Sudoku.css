@@ -1,0 +1,17 @@
+#test {
+  visibility: hidden;
+}
+.tabledata tr td {
+  padding: 0;
+  border: 1px solid black;
+}
+.tabledata {
+  border-collapse: collapse;
+  border: "1";
+  margin: auto;
+}
+input {
+  height: 3em;
+  width: 3em;
+  text-align: center;
+}
